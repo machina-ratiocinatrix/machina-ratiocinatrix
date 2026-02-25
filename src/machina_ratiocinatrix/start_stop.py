@@ -7,9 +7,13 @@ LICENSE file in the root directory of this source tree.
 """
 
 
-def spawn():
+def run():
+    pass
+
+
+def turn_off():
     pass
 
 
 if __name__ == "__main__":
-    spawn()
+    run()

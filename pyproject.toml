@@ -3,7 +3,7 @@ requires = ["setuptools>=67.0"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "machina-ratiocinatrix"
-version = "0.0.5"
+version = "0.0.7"
 authors = [
     {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
 ]
@@ -25,6 +25,10 @@ dependencies = [
     "grammateus >= 0.0.13",
     "multilogue >= 0.0.14"
 ]
+
+[project.scripts]
+machina-ratiocinatrix = "machina-ratiocinatrix.machina.start:run"
+
 [project.urls]
 "Homepage" = "https://github.com/machina-ratiocinatrix/machina-ratiocinatrix"
 "Bug Tracker" = "https://github.com/machina-ratiocinatrix/machina-ratiocinatrix/issues"
