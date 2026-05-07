@@ -1,10 +1,5 @@
-# Package name
-Package Name
+# Machina Ratiocinatrix
+Machina Ratiocinatrix
 <pre>
-  pip install package-name
+  pip install machina-ratiocinatrix
 </pre>
-Then:
-```Python
-  # Python
-  import package_name
-```

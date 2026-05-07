@@ -8,7 +8,7 @@ LICENSE file in the root directory of this source tree.
 
 
 def main(): # arg=None):
-    print(' main.')
+    print('Machina.')
 
 
 if __name__ == '__main__':

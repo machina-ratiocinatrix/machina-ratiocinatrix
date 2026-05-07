@@ -1,13 +1,15 @@
 [build-system]
-requires = ["setuptools>=67.0"]
+requires = ["setuptools==82.0.1"]
 build-backend = "setuptools.build_meta"
+
 [project]
-name = "package-name"
-version = "0.0.1"
+name = "machina-ratiocinatrix"
+version = "0.0.7"
 authors = [
-    {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
+    {name="Machina Ratiocinatrix", email="machina.ratio@gmail.com"},
+    {name="Alexander Fedotov", email="alex.fedotov@aol.com"}
 ]
-description = "Package description"
+description = "Machina Ratiocinatrix"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers=[
@@ -16,17 +18,14 @@ classifiers=[
         "Operating System :: OS Independent",
 ]
 
-keywords = ["package-name"]
+keywords = ["machina-raticinatrix"]
 
 dependencies = [
-    "PyGithub >= 2.6.0",
-    "requests >= 2.32.3",
-    "click >= 8.3.0"
+    "pyyaml == 6.0.3"
 ]
 
 [project.scripts]
-package-name = "package_name.cli:run"
+machina-ratiocinatrix = "machina_ratiocinatrix.cli:run"
 
 [project.urls]
-"Homepage" = "https://github.com/org_name/package_name"
-"Bug Tracker" = "https://github.com/org_name/package_name/issues"
+"Homepage" = "https://github.com/machina-ratiocinatrix/machina-ratiocinatrix"
