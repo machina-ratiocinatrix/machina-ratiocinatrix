@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "machina-ratiocinatrix"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
     {name="Machina Ratiocinatrix", email="machina.ratio@gmail.com"},
     {name="Alexander Fedotov", email="alex.fedotov@aol.com"}
@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [project.scripts]
-machina-ratiocinatrix = "machina_ratiocinatrix.cli:run"
+machina = "machina_ratiocinatrix.cli:run"
 
 [project.urls]
 "Homepage" = "https://github.com/machina-ratiocinatrix/machina-ratiocinatrix"
