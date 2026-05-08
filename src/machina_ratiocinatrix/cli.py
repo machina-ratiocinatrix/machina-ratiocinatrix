@@ -44,7 +44,8 @@ def options_and_arguments():
 
 
 def run():
-    """
+    """ Afer installation on Linux prompt
+    $ machina file1.txt file2.txt > output.txt
     """
     args = options_and_arguments().parse_args()
 
