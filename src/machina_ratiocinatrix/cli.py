@@ -12,25 +12,23 @@ import fileinput
 import argparse
 import syslog
 from .config import Config
+from .main import machina
 
 
 def options_and_arguments():
-    # Initialize the parser
     parser = argparse.ArgumentParser(
         description="Machina-Ratiocinatrix ratiocinates.",
         epilog="Example:  machina input_text.txt > output_text.txt"
-        # thinking-machine -a multilogue.txt > tmp && mv tmp multilogue.txt
     )
 
     parser.add_argument('-a', '--append',
                         action='store_true',
-                        help="Append the utterance to the input.")
+                        help="Append the proceeds to the input.")
 
     parser.add_argument('-d', '--debug',
                         action='store_true',
                         help="Debug flag.")
 
-    # Add the interactive flag
     parser.add_argument('-i', '--interactive',
                         action='store_true',
                         help="Enable interactive mode (defaults to False)")
@@ -44,7 +42,7 @@ def options_and_arguments():
 
 
 def run():
-    """ Afer installation on Linux prompt
+    """After installation, on Linux prompt
     $ machina file1.txt file2.txt > output.txt
     """
     args = options_and_arguments().parse_args()
@@ -58,46 +56,13 @@ def run():
             options_and_arguments().print_help()
             sys.exit(1)
 
-    config = Config()
-    
-    if args.provider_api_key:
-        if args.provider_api_key.startswith('sk-'):
-            if args.provider_api_key.startswith('sk-proj-'):
-                config.provider = 'OpenAI'
-                os.environ['OPENAI_API_KEY'] = args.provider_api_key
-            elif args.provider_api_key.startswith('sk-ant-'):
-                config.provider = 'Anthropic'
-                os.environ['ANTHROPIC_API_KEY'] = args.provider_api_key
-            else:
-                config.provider = 'DepSek'
-                os.environ['DEPSEK_API_KEY'] = args.provider_api_key
-        elif args.provider_api_key.startswith('AIzaSy'):
-            config.provider = 'Gemini'
-            os.environ['GEMINI_API_KEY'] = args.provider_api_key
-        elif args.provider_api_key.startswith('gsk_'):
-            config.provider = 'Groq'
-            os.environ['GROQ_API_KEY'] = args.provider_api_key
-        elif args.provider_api_key.startswith('xai-'):
-            config.provider = 'XAI'
-            os.environ['XAI_API_KEY'] = args.provider_api_key
-        elif args.provider_api_key.startswith('LLM|'):
-            config.provider = 'Meta'
-            os.environ['META_API_KEY'] = args.provider_api_key
-        elif args.provider_api_key == 'no_provider_key':
-            sys.stderr.write(f'No provider key!\n')
-            sys.stderr.flush()
-            sys.exit(1)
-        else:
-            if config.provider == '':
-                raise ValueError(f"Unrecognized API key prefix and no provider specified.")
-                
-        config.provider_api_key = args.provider_api_key
-        
     # Ingest files line by line. Join is here for long files.
     lines = []
     for line in fileinput.input(files=args.filenames or ['-'], encoding="utf-8"):
         lines.append(line)
     raw_input = "".join(lines)
+
+    config = Config()
 
     try:
         utterance = "Machina is ready"

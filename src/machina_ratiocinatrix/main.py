@@ -5,12 +5,13 @@
 This source code is licensed under the license found in the
 LICENSE file in the root directory of this source tree.
 """
+from .config import Config
 
 
-def main(): # arg=None):
+def machina(config:Config): # arg=None):
     print('Machina.')
 
 
 if __name__ == '__main__':
-    main()
-    ...
+    conf = Config()
+    machina(config=conf)
