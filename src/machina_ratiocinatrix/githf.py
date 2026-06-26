@@ -65,12 +65,14 @@ def fetch_instructions(config):
     parsed = yaml.safe_load(raw_yaml)
     name = parsed.get('name')
     config.name = name
+    verb = parsed.get('verb', 'ratiocinate')
+    config.verb = verb
     instructions = parsed.get('description', 'You are Machina-Ratiocinatrix.')
     config.instructions = instructions
-    verb = parsed.get('verb', 'ratiocinate')
     tools = parsed.get('tools', None)
-    # tools = json.loads(tools_text)
+    config.tools = tools
     rubric = parsed.get('rubric')
+    config.rubric = rubric
     return name, verb, instructions, tools, rubric
 
 

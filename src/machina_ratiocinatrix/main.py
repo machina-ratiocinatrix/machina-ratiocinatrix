@@ -43,6 +43,7 @@ def machina(plato_text, config, **kwargs):
         thoughts, text = openai.respond(
             messages=messages,
             instructions=system_prompt,
+            tools=tools
             **kwargs
         )
 
