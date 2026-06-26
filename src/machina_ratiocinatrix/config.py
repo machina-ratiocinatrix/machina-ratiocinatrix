@@ -22,6 +22,8 @@ class Config:
     name: str                       = field(default_factory=lambda: environ.get('NAME', ''))
     instructions: str               = field(default_factory=lambda: environ.get('INSTRUCTIONS', ''))
     verb: str                       = field(default_factory=lambda: environ.get('VERB', ''))
+    tools: str = field(default_factory=lambda: environ.get('TOOLS', []))
+    rubric: str = field(default_factory=lambda: environ.get('RUBRIC', ''))
 
     def to_dict(self):
         return asdict(self)

@@ -25,6 +25,7 @@ dependencies = [
 ]
 
 [project.scripts]
+machina-ratiocinatrix = "machina_ratiocinatrix.server:app"
 machina = "machina_ratiocinatrix.cli:run"
 
 [project.urls]
