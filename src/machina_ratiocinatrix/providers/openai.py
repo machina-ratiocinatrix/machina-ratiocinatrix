@@ -23,6 +23,11 @@ headers = {
 }
 
 
+def get_weather(location):
+    print(f"Executing weather tool for location: {location}")
+    return {"temperature": "72F", "condition": "Sunny"}
+
+
 def query(payload):
     # Convert data dictionary to JSON and encode it to bytes
     data_bytes = json.dumps(payload).encode('utf-8')
