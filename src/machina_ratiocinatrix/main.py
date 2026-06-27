@@ -14,6 +14,11 @@ from .utilities import (plato_text_to_muj,
                         llm_soup_to_text)
 
 
+def get_weather(location):
+    print(f"Executing weather tool for location: {location}")
+    return {"temperature": "72F", "condition": "Sunny"}
+
+
 def machina(plato_text, config, **kwargs):
     """Core agent logic.
 
@@ -43,7 +48,7 @@ def machina(plato_text, config, **kwargs):
         thoughts, text = openai.respond(
             messages=messages,
             instructions=system_prompt,
-            tools=tools
+            tools=tools,
             **kwargs
         )
 
